@@ -5,4 +5,4 @@ Python conda environment setup (https://conda.io/projects/conda/en/latest/user-g
 - conda env update --file environment.yml --prune
 
 Fast API
-- uvicorn run main:app --reload --host localhost --port 5000
+- uvicorn src.app:app --reload --host localhost --port 8000

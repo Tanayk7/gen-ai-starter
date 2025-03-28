@@ -19,7 +19,6 @@ dependencies:
   - langchain-community
   - langchain-openai
   - chromadb
-  - ollama
   - imutils
   - Flask
   - Pillow
@@ -39,3 +38,7 @@ dependencies:
       - faiss-cpu
       - python-unsplash
       - fastapi
+      - langchain
+      - pinecone-client
+      - pydantic-settings
+      - ollama

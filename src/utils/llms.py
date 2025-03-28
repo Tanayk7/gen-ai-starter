@@ -1,13 +1,11 @@
 import os 
 import traceback
-import ollama
 import numpy as np
 
 from openai import OpenAI
 from dotenv import load_dotenv
-from utils.image import encode_image_b64, cv2_to_b64, url_to_b64
+from src.utils.image import encode_image_b64, cv2_to_b64, url_to_b64
 from dotenv import load_dotenv
-from json_repair import repair_json
 
 load_dotenv()
 
@@ -99,19 +97,3 @@ def process_gpt(prompt: str, system_msg: str, response_format: str = "json_objec
         print(f"Something went wrong while trying to get a response from the OpenAI API: {e}")
         traceback.print_exc()
         return None
-
-def process_ollama(user_prompt, system_prompt, image_path): 
-    res = ollama.chat(
-        model="llava",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {
-                'role': 'user',
-                'content': user_prompt,
-                'images': [image_path]
-            }
-        ]
-    )
-    print(f"Request to llava for image: {image_path} complete!")
-    text_output = res['message']['content']
-    return text_output, image_path

@@ -59,4 +59,4 @@ Content-Type: application/json
 }
 
 ### Try to get items with invalid pagination
-GET {{baseUrl}}/items?skip=-1&limit=1000 
+GET {{baseUrl}}/items?skip=-1&limit=1000
