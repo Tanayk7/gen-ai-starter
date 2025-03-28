@@ -1,0 +1,8 @@
+Python conda environment setup (https://conda.io/projects/conda/en/latest/user-guide/install/windows.html)
+- conda env create --prefix ./env --file environment.yml
+- conda activate ./env
+- conda deactivate
+- conda env update --file environment.yml --prune
+
+Fast API
+- uvicorn run main:app --reload --host localhost --port 5000
