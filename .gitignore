@@ -1,7 +1,6 @@
 venv
 __pycache__
 *.zip
-.env
 .ebextensions
 *.pth
 env
