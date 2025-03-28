@@ -1,0 +1,62 @@
+### Variables
+@baseUrl = http://localhost:8000
+
+### Root endpoint
+GET {{baseUrl}}/
+
+### Get all items (with pagination)
+GET {{baseUrl}}/items?skip=0&limit=10
+
+### Get specific item by ID
+GET {{baseUrl}}/items/0
+
+### Get item with query parameter
+GET {{baseUrl}}/items/1?q=test
+
+### Create new item
+POST {{baseUrl}}/items
+Content-Type: application/json
+
+{
+    "name": "New Item",
+    "price": 45.50,
+    "is_offer": true
+}
+
+### Update existing item
+PUT {{baseUrl}}/items/0
+Content-Type: application/json
+
+{
+    "name": "Updated Item",
+    "price": 99.99,
+    "is_offer": false
+}
+
+### Examples that should trigger validation errors
+
+### Try to create item with negative price
+POST {{baseUrl}}/items
+Content-Type: application/json
+
+{
+    "name": "Invalid Item",
+    "price": -10.0,
+    "is_offer": true
+}
+
+### Try to get invalid item ID
+GET {{baseUrl}}/items/999
+
+### Try to update invalid item ID
+PUT {{baseUrl}}/items/999
+Content-Type: application/json
+
+{
+    "name": "Won't Work",
+    "price": 50.0,
+    "is_offer": true
+}
+
+### Try to get items with invalid pagination
+GET {{baseUrl}}/items?skip=-1&limit=1000 
